@@ -16,7 +16,7 @@ namespace Catalog.Controllers
             repository = new InMemItemsRepository();
         }
 
-       //GET /items
+        //GET /items
         [HttpGet] 
         public IEnumerable<Item> GetItems()
         {
@@ -24,9 +24,10 @@ namespace Catalog.Controllers
              return items;
         }
 
+        //GET /items/id
         [HttpGet("{id}")]
         public Item GetItem(Guid id){
-            var item = repository.GetItem(id);
+          var item = repository.GetItem(id);
           return item;
         }
     }
