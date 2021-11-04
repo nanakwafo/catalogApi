@@ -53,6 +53,7 @@ namespace Catalog
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            
             });
         }
     }
