@@ -1,3 +1,4 @@
+using System.Security.Authentication;
 using System.Reflection.Metadata.Ecma335;
 using System.Linq;
 using Catalog.Entities;
@@ -32,11 +33,24 @@ namespace Catalog.Controllers
         public ActionResult<ItemDto> GetItem(Guid id){
           var item = repository.GetItem(id);
        
-
           if(item is null){
               return NotFound();
           }
           return item.AsDto();
+        }
+
+        [HttpPost]
+        public ActionResult<ItemDto> CreateItem(CreateItemDto itemDto){
+            Item item = new Item(){
+                Id = Guid.NewGuid(),
+                Name = itemDto.Name,
+                Price = itemDto.Price,
+                CreatedDate = DateTimeOffset.UtcNow
+            };
+
+            repository.CreateItem(item);
+
+            return  CreatedAtAction(nameof(GetItem),new{Id = item.Id},item.AsDto());
         }
     }
 }
