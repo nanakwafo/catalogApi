@@ -10,10 +10,10 @@ namespace Catalog.Controllers
     [Route("items")]
     public class ItemsController : ControllerBase
     {
-        private readonly InMemItemsRepository repository;
+        private readonly InMemItemsRepositoryInterface repository;
 
-        public ItemsController(){
-            repository = new InMemItemsRepository();
+        public ItemsController(InMemItemsRepositoryInterface repository){
+            this.repository = repository;
         }
 
         //GET /items
@@ -26,8 +26,12 @@ namespace Catalog.Controllers
 
         //GET /items/id
         [HttpGet("{id}")]
-        public Item GetItem(Guid id){
+        public ActionResult<Item> GetItem(Guid id){
           var item = repository.GetItem(id);
+
+          if(item is null){
+              return NotFound();
+          }
           return item;
         }
     }

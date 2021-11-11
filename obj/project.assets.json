@@ -193,26 +193,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nanakwafo\\.nuget\\packages\\": {}
+    "/Users/nanamensah/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nanakwafo\\Desktop\\Catalog\\Catalog.csproj",
+      "projectUniqueName": "/Users/nanamensah/catalogApi/Catalog.csproj",
       "projectName": "Catalog",
-      "projectPath": "C:\\Users\\nanakwafo\\Desktop\\Catalog\\Catalog.csproj",
-      "packagesPath": "C:\\Users\\nanakwafo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nanakwafo\\Desktop\\Catalog\\obj\\",
+      "projectPath": "/Users/nanamensah/catalogApi/Catalog.csproj",
+      "packagesPath": "/Users/nanamensah/.nuget/packages/",
+      "outputPath": "/Users/nanamensah/catalogApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nanakwafo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/nanamensah/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -254,7 +252,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
       }
     }
   }
