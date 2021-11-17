@@ -79,6 +79,8 @@ namespace Catalog.Controllers
             if(existingItem is null){
                 return NotFound();
             }
+            repository.DeleteItem(existingItem.Id);
+            return NoContent();
         }
     }
 }
