@@ -35,6 +35,7 @@ namespace Catalog
                 return  new MongoClient(settings.ConnectionString);
             });
             services.AddSingleton<InMemItemsRepositoryInterface,MongoDBitemsRepository>();
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
