@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Catalog.Entities;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using System.Threading.Tasks;
 
 namespace Catalog.Repositories{
     class MongoDBitemsRepository : InMemItemsRepositoryInterface
@@ -11,33 +12,38 @@ namespace Catalog.Repositories{
         private const string databaseName = "catalog";
         private const string collectionName = "items";
         private readonly IMongoCollection<Item> itemsCollection;
+
+        private readonly FilterDefinitionBuilder<Item> filterBuilder = Builders<Item>.Filter;
         public MongoDBitemsRepository(IMongoClient mongoClient){
             IMongoDatabase database = mongoClient.GetDatabase(databaseName);
             itemsCollection =database.GetCollection<Item>(collectionName);
         }
-        public void CreateItem(Item item)
+        public  async Task CreateItemAsync(Item item)
         {
-            itemsCollection.InsertOne(item);
+             await itemsCollection.InsertOneAsync(item);
         }
 
-        public void DeleteItem(Guid id)
+        public void DeleteItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+             var filter =filterBuilder.Eq(item=> item.Id,id);
+             itemsCollection.DeleteOne(filter);
         }
 
-        public Item GetItem(Guid id)
+        public Item GetItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var filter =filterBuilder.Eq(item=> item.Id,id);
+            return itemsCollection.Find(filter).SingleOrDefault();    
         }
 
-        public IEnumerable<Item> GetItems()
+        public IEnumerable<Item> GetItemsAsync()
         {
             return itemsCollection.Find(new BsonDocument()).ToList();
         }
 
-        public void UpdateItem(Item item)
+        public void UpdateItemAsync(Item item)
         {
-            throw new NotImplementedException();
+           var filter =filterBuilder.Eq(existingitem=> existingitem.Id,item.Id);
+           itemsCollection.ReplaceOne(filter,item);
         }
     }
 }
