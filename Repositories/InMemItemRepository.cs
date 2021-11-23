@@ -19,7 +19,7 @@ namespace Catalog.Repositories
             new Item { Id = Guid.NewGuid(), Name = "Portia Quah", Price = 9, CreatedDate = DateTimeOffset.UtcNow }
         };
 
-        public async Task<IEnumerable<Item>> GetItems()
+        public async Task<IEnumerable<Item>> GetItemsAsync()
         {
             return  await Task.FromResult(items);
         }
