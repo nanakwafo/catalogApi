@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/nanamensah/.dotnet/store/|arch|/|tfm|",
-      "/Users/nanamensah/.nuget/packages"
+      "C:\\Users\\nanakwafo\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\nanakwafo\\.nuget\\packages"
     ]
   }
 }
